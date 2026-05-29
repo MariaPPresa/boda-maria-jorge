@@ -165,8 +165,8 @@ body {
 
 /* EVENTS */
 .events-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin-top: 2rem;
     max-width: 600px;
