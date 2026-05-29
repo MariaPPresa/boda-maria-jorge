@@ -249,6 +249,19 @@ body {
     transform: translateY(-2px);
 }
 
+.form-status {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.form-status.success {
+    color: var(--sage);
+}
+
+.form-status.error {
+    color: #c0392b;
+}
+
 /* GALLERY */
 .gallery-intro {
     color: var(--text);

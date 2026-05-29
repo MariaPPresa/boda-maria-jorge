@@ -46,7 +46,7 @@
     <section id="confirmar" class="section rsvp">
         <h2>Confirma tu asistencia</h2>
         <p class="rsvp-intro">Queremos compartir este día contigo. Por favor, confirma antes del 1 de abril de 2027.</p>
-        <form class="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="rsvp-form" id="rsvp-form">
             <input type="text" name="nombre" placeholder="Nombre completo" required>
             <input type="email" name="email" placeholder="Email" required>
             <select name="asistencia" required>
@@ -63,6 +63,7 @@
             <input type="number" name="acompanantes" placeholder="Nº de acompañantes" min="0" max="5">
             <textarea name="mensaje" placeholder="Alergias, intolerancias o mensaje para los novios..." rows="3"></textarea>
             <button type="submit">Enviar confirmación</button>
+            <p class="form-status" id="form-status"></p>
         </form>
     </section>
 
@@ -83,6 +84,30 @@
             a.addEventListener('click', (e) => {
                 e.preventDefault();
                 document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // RSVP form
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const status = document.getElementById('form-status');
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+            const data = Object.fromEntries(new FormData(this));
+            fetch('https://script.google.com/macros/s/AKfycbzkj6c7XfWY8Ex1-9-bM6_R2iy8cKDuh1PyRN3BjrncdlZc-0iN4zkYC8SgckB5l-fP/exec', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).then(() => {
+                status.textContent = '¡Gracias! Tu confirmación ha sido enviada 💛';
+                status.className = 'form-status success';
+                this.reset();
+            }).catch(() => {
+                status.textContent = 'Hubo un error. Inténtalo de nuevo.';
+                status.className = 'form-status error';
+            }).finally(() => {
+                btn.disabled = false;
+                btn.textContent = 'Enviar confirmación';
             });
         });
     </script>
