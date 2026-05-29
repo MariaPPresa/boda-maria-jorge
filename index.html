@@ -68,12 +68,8 @@
 
     <section id="galeria" class="section gallery">
         <h2>Galería</h2>
-        <p class="gallery-intro">¡Sube tus fotos del evento y compártelas con todos!</p>
-        <div class="gallery-upload">
-            <label for="photo-upload" class="upload-btn">📷 Subir fotos</label>
-            <input type="file" id="photo-upload" accept="image/*" multiple hidden>
-        </div>
-        <div class="gallery-grid" id="gallery-grid"></div>
+        <p class="gallery-intro">¡Comparte tus fotos del evento con todos los invitados!</p>
+        <a href="ENLACE_ALBUM_GOOGLE_PHOTOS" target="_blank" class="upload-btn">📷 Ver y subir fotos al álbum</a>
     </section>
 
     <footer>
@@ -82,21 +78,6 @@
     </footer>
 
     <script>
-        // Galería: preview local de fotos subidas
-        const input = document.getElementById('photo-upload');
-        const grid = document.getElementById('gallery-grid');
-        input.addEventListener('change', (e) => {
-            Array.from(e.target.files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = (ev) => {
-                    const img = document.createElement('img');
-                    img.src = ev.target.result;
-                    grid.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            });
-        });
-
         // Smooth scroll
         document.querySelectorAll('.nav a').forEach(a => {
             a.addEventListener('click', (e) => {
