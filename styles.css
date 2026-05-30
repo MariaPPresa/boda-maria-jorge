@@ -439,6 +439,18 @@ footer {
         font-size: 0.75rem;
         letter-spacing: 1px;
     }
+    .hero {
+        min-height: auto;
+        padding: 5rem 1.5rem 4rem;
+    }
+    .hero-panorama {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 2rem;
+        width: 70%;
+    }
     .section {
         padding: 4rem 1.5rem;
     }
