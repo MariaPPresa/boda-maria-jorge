@@ -5,8 +5,8 @@
 }
 
 :root {
-    --gold: #2e6b62;
-    --gold-light: #3d8b7a;
+    --gold: #d4707a;
+    --gold-light: #e8919a;
     --cream: #faf8f5;
     --dark: #2c2c2c;
     --text: #4a4a4a;
@@ -57,7 +57,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd4 50%, #d4cfc7 100%);
+    background: white;
     position: relative;
     overflow: hidden;
 }
@@ -84,12 +84,12 @@ body {
 }
 
 .hero-panorama {
-    width: 100%;
-    max-height: 140px;
-    object-fit: cover;
+    width: 80%;
+    max-width: 600px;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .hero-date {
