@@ -112,7 +112,7 @@
         var SONGS_URL = 'https://script.google.com/macros/s/AKfycbyHpB2UevEFoggdgJGvnKMESADTN9SFeuDnahYB7swHNdPR7QU3OcJziT2C8CD-s7W5/exec';
 
         function loadSongs() {
-            fetch(SONGS_URL)
+            fetch(SONGS_URL, {redirect: 'follow'})
                 .then(function(r) { return r.json(); })
                 .then(function(songs) {
                     var html = '';
