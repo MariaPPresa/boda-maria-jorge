@@ -116,8 +116,9 @@
                 .then(function(r) { return r.json(); })
                 .then(function(songs) {
                     var html = '';
-                    for (var i = 0; i < songs.length; i++) {
-                        html += '<div class="song-item"><span class="song-pos">' + (i + 1) + '</span><span class="song-name">' + songs[i].cancion + ' <small>— ' + songs[i].artista + '</small></span><span class="song-votes">' + songs[i].votos + ' ♥</span></div>';
+                    var top = songs.slice(0, 5);
+                    for (var i = 0; i < top.length; i++) {
+                        html += '<div class="song-item"><span class="song-pos">' + (i + 1) + '</span><span class="song-name">' + top[i].cancion + (top[i].artista ? ' <small>— ' + top[i].artista + '</small>' : '') + '</span><span class="song-votes">' + top[i].votos + ' ♥</span></div>';
                     }
                     document.getElementById('songs-ranking').innerHTML = html || '<p>Aún no hay canciones. ¡Sé el primero!</p>';
                 });
