@@ -311,6 +311,50 @@ body {
 }
 
 /* GALLERY */
+.songs-intro {
+    color: var(--text);
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.songs-ranking {
+    max-width: 500px;
+    margin: 2rem auto 0;
+    text-align: left;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.song-pos {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    min-width: 1.5rem;
+}
+
+.song-name {
+    flex: 1;
+    color: var(--dark);
+}
+
+.song-name small {
+    color: var(--text);
+    font-weight: 300;
+}
+
+.song-votes {
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* GALLERY */
 .gallery-intro {
     color: var(--text);
     font-weight: 300;

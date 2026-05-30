@@ -12,6 +12,7 @@
         <a href="#inicio">Inicio</a>
         <a href="#eventos">Eventos</a>
         <a href="#confirmar">Confirmar</a>
+        <a href="#canciones">Canciones</a>
         <a href="#galeria">Galería</a>
     </nav>
 
@@ -69,6 +70,18 @@
         </form>
     </section>
 
+    <section id="canciones" class="section songs">
+        <h2>Lista de canciones</h2>
+        <p class="songs-intro">¡Ayúdanos a crear la playlist perfecta! Añade tus canciones favoritas.</p>
+        <form class="rsvp-form" id="songs-form">
+            <input type="text" name="cancion" placeholder="Nombre de la canción" required>
+            <input type="text" name="artista" placeholder="Artista" required>
+            <button type="submit">🎵 Añadir canción</button>
+            <p class="form-status" id="songs-status"></p>
+        </form>
+        <div class="songs-ranking" id="songs-ranking"></div>
+    </section>
+
     <section id="galeria" class="section gallery">
         <h2>Galería</h2>
         <p class="gallery-intro">¡Comparte tus fotos del evento con todos los invitados!</p>
@@ -94,6 +107,46 @@
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // Songs
+        var SONGS_URL = 'https://script.google.com/macros/s/AKfycbwdOwNFYq3grejHBVr2ACKQDti6x6-Hn1W_NPRfrlzfejvl27ElW-07aqZLhQGzBazt/exec';
+
+        function loadSongs() {
+            fetch(SONGS_URL)
+                .then(function(r) { return r.json(); })
+                .then(function(songs) {
+                    var html = '';
+                    for (var i = 0; i < songs.length; i++) {
+                        html += '<div class="song-item"><span class="song-pos">' + (i + 1) + '</span><span class="song-name">' + songs[i].cancion + ' <small>— ' + songs[i].artista + '</small></span><span class="song-votes">' + songs[i].votos + ' ♥</span></div>';
+                    }
+                    document.getElementById('songs-ranking').innerHTML = html || '<p>Aún no hay canciones. ¡Sé el primero!</p>';
+                });
+        }
+        loadSongs();
+
+        document.getElementById('songs-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = this.querySelector('button');
+            var status = document.getElementById('songs-status');
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+            var data = Object.fromEntries(new FormData(this));
+            fetch(SONGS_URL, {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).then(function() {
+                status.textContent = '¡Canción añadida! 🎶';
+                status.className = 'form-status success';
+                loadSongs();
+            }).catch(function() {
+                status.textContent = 'Error. Inténtalo de nuevo.';
+                status.className = 'form-status error';
+            }).finally(function() {
+                btn.disabled = false;
+                btn.textContent = '🎵 Añadir canción';
+            });
+            this.reset();
+        });
 
         // Smooth scroll
         document.querySelectorAll('.nav a').forEach(a => {
