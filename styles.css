@@ -399,8 +399,6 @@ body {
 }
 
 .photo-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
     font-size: 1.1rem;
     color: var(--text);
     margin-top: 1.5rem;
