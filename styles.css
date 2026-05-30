@@ -323,6 +323,14 @@ body {
     text-align: left;
 }
 
+.ranking-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+}
+
 .song-item {
     display: flex;
     align-items: center;
