@@ -121,7 +121,8 @@
                         html += '<div class="song-item"><span class="song-pos">' + (i + 1) + '</span><span class="song-name">' + top[i].cancion + (top[i].artista ? ' <small>— ' + top[i].artista + '</small>' : '') + '</span><span class="song-votes">' + top[i].votos + ' ♥</span></div>';
                     }
                     document.getElementById('songs-ranking').innerHTML = html || '<p>Aún no hay canciones. ¡Sé el primero!</p>';
-                });
+                })
+                .catch(function() {});
         }
         loadSongs();
 
