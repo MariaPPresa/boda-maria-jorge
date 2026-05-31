@@ -486,10 +486,14 @@ footer {
     .nav {
         gap: 1rem;
         padding: 0.8rem 1rem;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
     }
     .nav a {
         font-size: 0.75rem;
         letter-spacing: 1px;
+        white-space: nowrap;
     }
     .hero {
         min-height: auto;
