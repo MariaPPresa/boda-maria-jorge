@@ -429,6 +429,11 @@ footer {
     margin-top: 0.5rem;
 }
 
+.footer-contact {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
     .nav {
