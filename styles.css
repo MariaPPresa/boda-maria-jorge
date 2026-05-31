@@ -244,6 +244,53 @@ body {
     margin-top: 1.2rem;
 }
 
+/* TIMELINE */
+.timeline {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.timeline-day {
+    margin-bottom: 2.5rem;
+}
+
+.timeline-day h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1.2rem;
+    padding: 0.8rem 0;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-left: 1rem;
+}
+
+.timeline-time {
+    min-width: 3.5rem;
+    font-weight: 500;
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.timeline-content strong {
+    color: var(--dark);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.timeline-content p {
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 300;
+}
+
 /* RSVP */
 .rsvp {
     background: white;
